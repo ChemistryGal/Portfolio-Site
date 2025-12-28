@@ -23,7 +23,7 @@ export const HeroSection = () => {
             Enticing Sentence hehe
           </p>
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className = "cosimic-button"> View My Work</a>
+            <a href="#projects" className = "cosmic-button"> View My Work</a>
           </div>
         </div>
       </div>
