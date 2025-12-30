@@ -13,11 +13,11 @@ export const AboutSection = () => {
             <h3 className = "text-2xl font-semibold">
             {aboutContent.subtitle}
             </h3>
-            <p className = "text-muted-foreground">
+            <p className = "text-left text-muted-foreground">
             {aboutContent.description}
             </p>
-            <p className = "text-muted-foreground">
-            {aboutContent.description}
+            <p className = "text-left text-muted-foreground">
+            {aboutContent.description2}
             </p>
         <div className = "flex flex-col sm:flex-row gap-4 justify-center">
             <a href = "src/assets/Katie Hancock CV.pdf" download = "Katie Hancock CV.pdf" aria-label="Download Document" className = "cosmic-button">
@@ -47,7 +47,7 @@ export const AboutSection = () => {
                 </div>
                 <div className = "text-left">
                     <h4 className = "font-semibold text-lg">User Experiences</h4>
-                    <p className="text-muted-foreground">{aboutContent.user}</p>
+                    <p className="text-muted-foreground">{aboutContent.userdesc}</p>
                 </div>
             </div>
          </div>
@@ -58,7 +58,7 @@ export const AboutSection = () => {
                 </div>
                 <div className = "text-left">
                     <h4 className = "font-semibold text-lg">Leadership and Projects</h4>
-                    <p className="text-muted-foreground">{aboutContent.briefcase}</p>
+                    <p className="text-muted-foreground">{aboutContent.briefcasedesc}</p>
                 </div>
             </div>
          </div>
