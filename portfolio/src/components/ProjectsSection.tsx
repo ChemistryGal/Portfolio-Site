@@ -28,7 +28,7 @@ export const ProjectsSection = () => {
                 onClick={() => setActiveImage(project.image)}
               >
                 <img
-                  src={'${import.meta.env.BASE_URL}${project.image}'}
+                  src={`${import.meta.env.BASE_URL}${project.image}`}
                   alt={project.name}
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
