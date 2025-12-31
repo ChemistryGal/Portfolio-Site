@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GitBranch } from "lucide-react";
+import { GitBranch, LinkIcon } from "lucide-react";
 import { ProejctContent } from "../content/ProjectSection"; // Ensure the path is correct
 
 export const ProjectsSection = () => {
@@ -43,14 +43,46 @@ export const ProjectsSection = () => {
                 {project.description}
               </p>
 
-              <a
-                href={project.linkGithub}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline mt-auto"
-              >
-                <GitBranch size = {20} className="inline mr-2" />
-              </a>
+              <div className="flex items-center gap-4 mt-auto">
+  {/* GitHub — only show if it exists */}
+  {project.linkGithub && (
+    <div className="relative group">
+      <a
+        href={project.linkGithub}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-primary hover:text-primary/80 transition"
+      >
+        <GitBranch size={20} />
+      </a>
+      <span className="tooltip"></span>
+    </div>
+  )}
+
+        {/* Live Project — only show if it exists */}
+        {project.linktoProject && (
+          <div className="relative group">
+            <a
+              href={project.linktoProject}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition"
+            >
+              <LinkIcon size={20} />
+            </a>
+            <span className="tooltip"></span>
+          </div>
+        )}
+
+        {/* Coming soon label */}
+        {project.comingSoon && (
+          <span className="text-xs italic text-muted-foreground">
+            
+          </span>
+        )}
+      </div>
+
+
             </div>
           ))}
         </div>
