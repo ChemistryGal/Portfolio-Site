@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { GitBranch } from "lucide-react";
-import { ProejctContent } from "../content/ProjectSection";
+import { ProejctContent } from "../content/ProjectSection"; // Ensure the path is correct
 
 export const ProjectsSection = () => {
   const [activeImage, setActiveImage] = useState<string | null>(null);
