@@ -26,11 +26,12 @@ return (
   <button
     onClick={toggleTheme}
     className={cn(
-      "absolute left-1/2 top-7 -translate-x-1/2 z-[60]",
+      "absolute left-1/2 top-5 -translate-x-1/2 z-[60]",
       "flex items-center gap-2",
       "p-2 transition-colors duration-200",
       "hover:opacity-80",
-      "focus:outline-none focus:ring-0"
+      "focus:outline-none focus:ring-0",
+      className
     )}
     aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     title={isDarkMode ? "Light mode" : "Dark mode"}
