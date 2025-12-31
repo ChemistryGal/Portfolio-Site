@@ -2,45 +2,53 @@ import { Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "../lib/utlis";
 
+type Props = { className?: string };
 
-export const ThemeToggle = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+export const ThemeToggle = ({ className }: Props) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("theme")
-        if(storedTheme === "dark"){
-            setIsDarkMode(true)
-            document.documentElement.classList.add("dark");
-        } else {
-            localStorage.setItem("theme", "light");
-            setIsDarkMode(false);
-        }
-    }, [])
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    const dark = storedTheme === "dark";
+    setIsDarkMode(dark);
+    document.documentElement.classList.toggle("dark", dark);
+    if (!storedTheme) localStorage.setItem("theme", "light");
+  }, []);
 
-    const toggleTheme = () => {
-        if(isDarkMode){
-            setIsDarkMode(false);
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        } else {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-            setIsDarkMode(true);
-        }
-    };
+  const toggleTheme = () => {
+    const nextDark = !isDarkMode;
+    setIsDarkMode(nextDark);
+    document.documentElement.classList.toggle("dark", nextDark);
+    localStorage.setItem("theme", nextDark ? "dark" : "light");
+  };
+
+return (
+  <button
+    onClick={toggleTheme}
+    className={cn(
+      "absolute left-1/2 top-7 -translate-x-1/2 z-[60]",
+      "flex items-center gap-2",
+      "p-2 transition-colors duration-200",
+      "hover:opacity-80",
+      "focus:outline-none focus:ring-0"
+    )}
+    aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+    title={isDarkMode ? "Light mode" : "Dark mode"}
+    type="button"
+  >
+    {isDarkMode ? (
+      <>
+        <Sun className="h-6 w-6 text-yellow-300" />
+        <span className="text-sm font-medium text-foreground">Light Mode</span>
+      </>
+    ) : (
+      <>
+        <Moon className="h-6 w-6 text-blue-900 dark:text-blue-200" />
+        <span className="text-sm font-medium text-foreground">Dark Mode</span>
+      </>
+    )}
+  </button>
+);
 
 
-
-    return ( 
-        <button onClick = {toggleTheme} className={cn("fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-3",
-            "focus:outline-hidden"
-        )}>
-        {isDarkMode ? 
-        (<Sun  className="h-6 w-6 text-yellow-300"/> )
-            : 
-        (<Moon className="h-6 w-6 text-blue-900"/>)
-        }
-        
-        </button>
-    );
-}
+};

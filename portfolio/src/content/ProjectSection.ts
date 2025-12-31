@@ -12,7 +12,7 @@ export const ProejctContent = {
         {
             id: 2,
             name: "Coming Soon",
-            description: "I am working on more projects to display my skills and experience. Here is a link to my githubs main page. If you have any questions please reach out to me through te contact form on this site. Stay tuned for updates!",
+            description: "I am working on more projects to display my skills and experience. Here is a link to my githubs main page. If you have any questions please reach out to me through my contact info on this site. Stay tuned for updates!",
             tags: [],
             image: "projects/ComingSoon.png",
             linkGithub: "https://github.com/ChemistryGal",
